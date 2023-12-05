@@ -43,7 +43,6 @@ public record SensorHistoryFile : IDisposable
   {
     Path = path;
     stream = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-    // stream = PipeReader.Create(fileStream).AsStream();
 
     using (BinaryReader reader = new(stream, Encoding.UTF8, leaveOpen: true))
     {
@@ -54,13 +53,17 @@ public record SensorHistoryFile : IDisposable
     Entries = EnumerateSensorHistoryEntries(stream).Cached();
   }
 
-  IEnumerable<SensorHistoryEntry> EnumerateSensorHistoryEntries(Stream content)
+  static IEnumerable<SensorHistoryEntry> EnumerateSensorHistoryEntries(Stream content)
   {
-    // Only one enumerator per stream at a time allowed to avoid seeks getting mixed up.
+    // Only one enumerator per stream at a time allowed to avoid seeks getting mixed up
     lock (content)
     {
       long startPosition = content.Position;
-      // Rewind if this is asked to be enumerated again.
+
+      // Instantiate Pipelines for buffer management.
+      Stream stream = PipeReader.Create(content).AsStream();
+
+      // Read the stream into a buffer
       using (BinaryReader reader = new(content, Encoding.UTF8, leaveOpen: true))
       {
         while (content.Position < content.Length)
@@ -68,10 +71,10 @@ public record SensorHistoryFile : IDisposable
           yield return new SensorHistoryEntry(reader);
         }
       }
-      // Rewind the stream for subsequent requests (tho there shouldn't be any)
+
+      // Rewind the stream for subsequent requests (however there shouldn't be any because this should be fronted by a a cache)
       content.Position = startPosition;
     }
-
   }
 
   public void Dispose()
