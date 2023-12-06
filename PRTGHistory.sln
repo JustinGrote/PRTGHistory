@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{13BBC1AB-0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrtgHistory", "Test\PrtgHistory\PrtgHistory.csproj", "{B2F7A07E-1F7E-4087-9CD1-45925934C998}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRTGHistory.Cmdlets", "Source\PRTGHistory.Cmdlets\PRTGHistory.Cmdlets.csproj", "{28A46B85-C936-418E-9A83-2F8C58F9E4CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{B2F7A07E-1F7E-4087-9CD1-45925934C998}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2F7A07E-1F7E-4087-9CD1-45925934C998}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2F7A07E-1F7E-4087-9CD1-45925934C998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28A46B85-C936-418E-9A83-2F8C58F9E4CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28A46B85-C936-418E-9A83-2F8C58F9E4CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28A46B85-C936-418E-9A83-2F8C58F9E4CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28A46B85-C936-418E-9A83-2F8C58F9E4CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +45,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A0E29CE5-989B-4210-BCFF-40125D34967C} = {93B078E4-56DE-45F8-BC2F-F428F3E7288A}
 		{B2F7A07E-1F7E-4087-9CD1-45925934C998} = {13BBC1AB-0D21-4BFD-8378-53DE10010357}
+		{28A46B85-C936-418E-9A83-2F8C58F9E4CF} = {93B078E4-56DE-45F8-BC2F-F428F3E7288A}
 	EndGlobalSection
 EndGlobal

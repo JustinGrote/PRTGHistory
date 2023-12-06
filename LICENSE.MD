@@ -20,7 +20,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## Portions sourced from https://github.com/lordmilko/PrtgDocker
+## Third Party Notices
+
+### https://github.com/lordmilko/PrtgDocker
 
 MIT License
 
