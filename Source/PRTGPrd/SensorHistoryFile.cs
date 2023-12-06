@@ -16,7 +16,6 @@ public record SensorHistoryFile : IDisposable
   public SensorHistoryHeader Header { get; init; }
   public IEnumerable<SensorHistoryEntry> Entries { get; init; }
   Stream stream { get; init; }
-
   public SensorHistoryFile(string path)
   {
     Path = path;

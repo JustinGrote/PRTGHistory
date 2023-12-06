@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Management.Automation;
+
 using PrtgDB;
 
 namespace PRTGPrd.Commands;
