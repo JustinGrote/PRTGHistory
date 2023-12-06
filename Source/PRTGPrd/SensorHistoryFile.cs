@@ -25,7 +25,7 @@ public record SensorHistoryFile : IDisposable
 
     string fileName = System.IO.Path.GetFileNameWithoutExtension(path);
 
-    DeviceId = int.TryParse(fileName.Substring(fileName.LastIndexOf(' ') + 1), out int deviceId)
+    DeviceId = int.TryParse(fileName.AsSpan(fileName.LastIndexOf(' ') + 1), out int deviceId)
       ? deviceId
       : -1;
 
@@ -64,7 +64,6 @@ public record SensorHistoryFile : IDisposable
   }
 }
 
-
 #pragma warning disable CS9107 // BinaryReader is fairly stateless so this is OK
 class PrtgPrdReader(Stream stream, bool leaveOpen = false) : BinaryReader(stream, Encoding.UTF8, leaveOpen)
 #pragma warning restore CS9107
@@ -95,8 +94,6 @@ class PrtgPrdReader(Stream stream, bool leaveOpen = false) : BinaryReader(stream
     var dateValue = DateTime.FromOADate(decimalValue).ToLocalTime();
     return dateValue;
   }
-
-
 }
 
 public record SensorHistoryHeader(
@@ -106,4 +103,3 @@ public record SensorHistoryHeader(
   int TotalRecords,
   byte[] Unknown
 );
-
